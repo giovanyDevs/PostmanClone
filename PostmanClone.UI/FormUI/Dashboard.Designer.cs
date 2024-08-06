@@ -1,4 +1,4 @@
-﻿namespace PostmanClone.UI
+﻿namespace PostmanClone.UI.FormUI
 {
     partial class Dashboard
     {
@@ -32,7 +32,7 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            label1 = new Label();
+            RequestHeader = new Label();
             BodyRequestTextBox = new TextBox();
             HttpHeadersRequestTextBox = new TextBox();
             StartLineRequestTextBox = new TextBox();
@@ -40,21 +40,24 @@
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            label2 = new Label();
+            ResponseHeader = new Label();
             BodyResponseTextBox = new TextBox();
             HttpHeadersResponseTextBox = new TextBox();
             StartLineResponseTextBox = new TextBox();
             MainPanel = new Panel();
             StatusSystemToolStrip = new ToolStrip();
+            SystemStatusToolStripLabel = new ToolStripLabel();
             StatusSystemPanel = new Panel();
             SystemControlPanel = new Panel();
             SystemControlMenuStrip = new MenuStrip();
             RequestControlPanel = new Panel();
+            label1 = new Label();
             StartRequestButton = new Button();
             UrlRequestTextBox = new TextBox();
             HttpRequestPanel.SuspendLayout();
             HttpResponsePanel.SuspendLayout();
             MainPanel.SuspendLayout();
+            StatusSystemToolStrip.SuspendLayout();
             StatusSystemPanel.SuspendLayout();
             SystemControlPanel.SuspendLayout();
             RequestControlPanel.SuspendLayout();
@@ -66,7 +69,7 @@
             HttpRequestPanel.Controls.Add(label5);
             HttpRequestPanel.Controls.Add(label4);
             HttpRequestPanel.Controls.Add(label3);
-            HttpRequestPanel.Controls.Add(label1);
+            HttpRequestPanel.Controls.Add(RequestHeader);
             HttpRequestPanel.Controls.Add(BodyRequestTextBox);
             HttpRequestPanel.Controls.Add(HttpHeadersRequestTextBox);
             HttpRequestPanel.Controls.Add(StartLineRequestTextBox);
@@ -106,14 +109,14 @@
             label3.TabIndex = 7;
             label3.Text = "StartLine:";
             // 
-            // label1
+            // RequestHeader
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(27, 94);
-            label1.Name = "label1";
-            label1.Size = new Size(99, 32);
-            label1.TabIndex = 3;
-            label1.Text = "Request";
+            RequestHeader.AutoSize = true;
+            RequestHeader.Location = new Point(20, 94);
+            RequestHeader.Name = "RequestHeader";
+            RequestHeader.Size = new Size(99, 32);
+            RequestHeader.TabIndex = 3;
+            RequestHeader.Text = "Request";
             // 
             // BodyRequestTextBox
             // 
@@ -149,7 +152,7 @@
             HttpResponsePanel.Controls.Add(label8);
             HttpResponsePanel.Controls.Add(label7);
             HttpResponsePanel.Controls.Add(label6);
-            HttpResponsePanel.Controls.Add(label2);
+            HttpResponsePanel.Controls.Add(ResponseHeader);
             HttpResponsePanel.Controls.Add(BodyResponseTextBox);
             HttpResponsePanel.Controls.Add(HttpHeadersResponseTextBox);
             HttpResponsePanel.Controls.Add(StartLineResponseTextBox);
@@ -189,14 +192,14 @@
             label6.TabIndex = 10;
             label6.Text = "Body:";
             // 
-            // label2
+            // ResponseHeader
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(59, 94);
-            label2.Name = "label2";
-            label2.Size = new Size(115, 32);
-            label2.TabIndex = 6;
-            label2.Text = "Response";
+            ResponseHeader.AutoSize = true;
+            ResponseHeader.Location = new Point(59, 94);
+            ResponseHeader.Name = "ResponseHeader";
+            ResponseHeader.Size = new Size(115, 32);
+            ResponseHeader.TabIndex = 6;
+            ResponseHeader.Text = "Response";
             // 
             // BodyResponseTextBox
             // 
@@ -240,11 +243,19 @@
             // StatusSystemToolStrip
             // 
             StatusSystemToolStrip.Dock = DockStyle.Fill;
+            StatusSystemToolStrip.Items.AddRange(new ToolStripItem[] { SystemStatusToolStripLabel });
             StatusSystemToolStrip.Location = new Point(0, 0);
             StatusSystemToolStrip.Name = "StatusSystemToolStrip";
             StatusSystemToolStrip.Size = new Size(1453, 28);
             StatusSystemToolStrip.TabIndex = 0;
             StatusSystemToolStrip.Text = "toolStrip1";
+            // 
+            // SystemStatusToolStripLabel
+            // 
+            SystemStatusToolStripLabel.Font = new Font("Segoe UI", 12F);
+            SystemStatusToolStripLabel.Name = "SystemStatusToolStripLabel";
+            SystemStatusToolStripLabel.Size = new Size(102, 25);
+            SystemStatusToolStripLabel.Text = "Status: Ready";
             // 
             // StatusSystemPanel
             // 
@@ -277,7 +288,9 @@
             // 
             // RequestControlPanel
             // 
+            RequestControlPanel.BackColor = SystemColors.Control;
             RequestControlPanel.BorderStyle = BorderStyle.FixedSingle;
+            RequestControlPanel.Controls.Add(label1);
             RequestControlPanel.Controls.Add(StartRequestButton);
             RequestControlPanel.Controls.Add(UrlRequestTextBox);
             RequestControlPanel.Dock = DockStyle.Top;
@@ -286,20 +299,31 @@
             RequestControlPanel.Size = new Size(1455, 38);
             RequestControlPanel.TabIndex = 2;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F);
+            label1.Location = new Point(11, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 15);
+            label1.TabIndex = 8;
+            label1.Text = "API URL:";
+            // 
             // StartRequestButton
             // 
             StartRequestButton.Font = new Font("Segoe UI", 9F);
-            StartRequestButton.Location = new Point(872, 5);
+            StartRequestButton.Location = new Point(924, 5);
             StartRequestButton.Name = "StartRequestButton";
             StartRequestButton.Size = new Size(91, 23);
             StartRequestButton.TabIndex = 2;
             StartRequestButton.Text = "Start Request";
             StartRequestButton.UseVisualStyleBackColor = true;
+            StartRequestButton.Click += StartRequestButton_Click;
             // 
             // UrlRequestTextBox
             // 
             UrlRequestTextBox.Font = new Font("Segoe UI", 9F);
-            UrlRequestTextBox.Location = new Point(21, 5);
+            UrlRequestTextBox.Location = new Point(73, 5);
             UrlRequestTextBox.Name = "UrlRequestTextBox";
             UrlRequestTextBox.Size = new Size(845, 23);
             UrlRequestTextBox.TabIndex = 1;
@@ -308,6 +332,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.GhostWhite;
             ClientSize = new Size(1455, 771);
             Controls.Add(RequestControlPanel);
             Controls.Add(SystemControlPanel);
@@ -325,6 +350,8 @@
             HttpResponsePanel.ResumeLayout(false);
             HttpResponsePanel.PerformLayout();
             MainPanel.ResumeLayout(false);
+            StatusSystemToolStrip.ResumeLayout(false);
+            StatusSystemToolStrip.PerformLayout();
             StatusSystemPanel.ResumeLayout(false);
             StatusSystemPanel.PerformLayout();
             SystemControlPanel.ResumeLayout(false);
@@ -347,8 +374,8 @@
         private TextBox BodyResponseTextBox;
         private TextBox HttpHeadersResponseTextBox;
         private TextBox StartLineResponseTextBox;
-        private Label label1;
-        private Label label2;
+        private Label RequestHeader;
+        private Label ResponseHeader;
         private Label label5;
         private Label label4;
         private Label label3;
@@ -360,5 +387,7 @@
         private Panel RequestControlPanel;
         private Button StartRequestButton;
         private TextBox UrlRequestTextBox;
+        private Label label1;
+        private ToolStripLabel SystemStatusToolStripLabel;
     }
 }
