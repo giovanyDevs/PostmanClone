@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             HttpRequestPanel = new Panel();
             label5 = new Label();
             label4 = new Label();
@@ -54,6 +55,7 @@
             label1 = new Label();
             StartRequestButton = new Button();
             UrlRequestTextBox = new TextBox();
+            ErrorProvider = new ErrorProvider(components);
             HttpRequestPanel.SuspendLayout();
             HttpResponsePanel.SuspendLayout();
             MainPanel.SuspendLayout();
@@ -61,6 +63,7 @@
             StatusSystemPanel.SuspendLayout();
             SystemControlPanel.SuspendLayout();
             RequestControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ErrorProvider).BeginInit();
             SuspendLayout();
             // 
             // HttpRequestPanel
@@ -312,7 +315,7 @@
             // StartRequestButton
             // 
             StartRequestButton.Font = new Font("Segoe UI", 9F);
-            StartRequestButton.Location = new Point(924, 5);
+            StartRequestButton.Location = new Point(939, 5);
             StartRequestButton.Name = "StartRequestButton";
             StartRequestButton.Size = new Size(91, 23);
             StartRequestButton.TabIndex = 2;
@@ -327,6 +330,10 @@
             UrlRequestTextBox.Name = "UrlRequestTextBox";
             UrlRequestTextBox.Size = new Size(845, 23);
             UrlRequestTextBox.TabIndex = 1;
+            // 
+            // ErrorProvider
+            // 
+            ErrorProvider.ContainerControl = this;
             // 
             // Dashboard
             // 
@@ -358,6 +365,7 @@
             SystemControlPanel.PerformLayout();
             RequestControlPanel.ResumeLayout(false);
             RequestControlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ErrorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -389,5 +397,6 @@
         private TextBox UrlRequestTextBox;
         private Label label1;
         private ToolStripLabel SystemStatusToolStripLabel;
+        private ErrorProvider ErrorProvider;
     }
 }
