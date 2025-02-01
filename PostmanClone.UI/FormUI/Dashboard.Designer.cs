@@ -68,6 +68,7 @@
             // 
             // HttpRequestPanel
             // 
+            HttpRequestPanel.BackColor = Color.WhiteSmoke;
             HttpRequestPanel.BorderStyle = BorderStyle.FixedSingle;
             HttpRequestPanel.Controls.Add(label5);
             HttpRequestPanel.Controls.Add(label4);
@@ -98,7 +99,7 @@
             label4.Font = new Font("Segoe UI", 9F);
             label4.Location = new Point(20, 194);
             label4.Name = "label4";
-            label4.Size = new Size(82, 15);
+            label4.Size = new Size(84, 15);
             label4.TabIndex = 8;
             label4.Text = "HTTP headers:";
             // 
@@ -151,6 +152,7 @@
             // 
             // HttpResponsePanel
             // 
+            HttpResponsePanel.BackColor = Color.WhiteSmoke;
             HttpResponsePanel.BorderStyle = BorderStyle.FixedSingle;
             HttpResponsePanel.Controls.Add(label8);
             HttpResponsePanel.Controls.Add(label7);
@@ -181,7 +183,7 @@
             label7.Font = new Font("Segoe UI", 9F);
             label7.Location = new Point(59, 194);
             label7.Name = "label7";
-            label7.Size = new Size(82, 15);
+            label7.Size = new Size(84, 15);
             label7.TabIndex = 11;
             label7.Text = "HTTP headers:";
             // 
@@ -245,7 +247,9 @@
             // 
             // StatusSystemToolStrip
             // 
+            StatusSystemToolStrip.BackColor = Color.DarkGray;
             StatusSystemToolStrip.Dock = DockStyle.Fill;
+            StatusSystemToolStrip.GripStyle = ToolStripGripStyle.Hidden;
             StatusSystemToolStrip.Items.AddRange(new ToolStripItem[] { SystemStatusToolStripLabel });
             StatusSystemToolStrip.Location = new Point(0, 0);
             StatusSystemToolStrip.Name = "StatusSystemToolStrip";
@@ -255,7 +259,9 @@
             // 
             // SystemStatusToolStripLabel
             // 
+            SystemStatusToolStripLabel.BackColor = Color.White;
             SystemStatusToolStripLabel.Font = new Font("Segoe UI", 12F);
+            SystemStatusToolStripLabel.ForeColor = SystemColors.ControlLightLight;
             SystemStatusToolStripLabel.Name = "SystemStatusToolStripLabel";
             SystemStatusToolStripLabel.Size = new Size(102, 25);
             SystemStatusToolStripLabel.Text = "Status: Ready";
@@ -282,6 +288,7 @@
             // 
             // SystemControlMenuStrip
             // 
+            SystemControlMenuStrip.BackColor = Color.DarkGray;
             SystemControlMenuStrip.Dock = DockStyle.Fill;
             SystemControlMenuStrip.Location = new Point(0, 0);
             SystemControlMenuStrip.Name = "SystemControlMenuStrip";
@@ -291,7 +298,7 @@
             // 
             // RequestControlPanel
             // 
-            RequestControlPanel.BackColor = SystemColors.Control;
+            RequestControlPanel.BackColor = Color.DarkGray;
             RequestControlPanel.BorderStyle = BorderStyle.FixedSingle;
             RequestControlPanel.Controls.Add(label1);
             RequestControlPanel.Controls.Add(StartRequestButton);
@@ -306,6 +313,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F);
+            label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(11, 9);
             label1.Name = "label1";
             label1.Size = new Size(52, 15);

@@ -33,13 +33,16 @@ public class ApiAccess : IApiAccess
     {
         Uri? validUri;
 
-        if (string.IsNullOrEmpty(url))
-        { return false; }
-        else if (Uri.TryCreate(url, UriKind.Absolute, out validUri) is false)
-        { return false; }
+        if (string.IsNullOrEmpty(url)) { 
+            return false; 
+        }
+        else if (Uri.TryCreate(url, UriKind.Absolute, out validUri) is false) { 
+            return false; 
+        }
 
-        if (acceptOnlyHttps is true && validUri?.Scheme != Uri.UriSchemeHttps)
-        { return false; }
+        if (acceptOnlyHttps is true && validUri?.Scheme != Uri.UriSchemeHttps){ 
+            return false; 
+        }
 
         return true;
     }
@@ -87,15 +90,17 @@ public class ApiAccess : IApiAccess
 
     private static string LoadReadableJson(string unformatedJson)
     {
-        if (string.IsNullOrEmpty(unformatedJson))
-        { return unformatedJson; }
-        else if (unformatedJson.IsJson() is false)
-        { return string.Empty; }
+        if (string.IsNullOrEmpty(unformatedJson)) { 
+            return unformatedJson; 
+        }
+        else if (unformatedJson.IsJson() is false) { 
+            return unformatedJson; 
+        }
 
         var JsonElement = JsonSerializer.Deserialize<JsonElement>(unformatedJson);
 
-        string httpBody = JsonSerializer.Serialize(JsonElement,
-                                                  new JsonSerializerOptions { WriteIndented = true });
+        string httpBody = JsonSerializer.Serialize(JsonElement, new JsonSerializerOptions { WriteIndented = true });
+
         return httpBody;
     }
     #endregion
