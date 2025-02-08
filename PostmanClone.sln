@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostmanClone.Library", "Pos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostmanClone.UI", "PostmanClone.UI\PostmanClone.UI.csproj", "{87B1DB38-0C98-4590-ACCD-E204F4C27546}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PostmanClone.Instaler", "PostmanClone.Instaler\PostmanClone.Instaler.vdproj", "{BD6E246E-5494-42B9-9AB8-8ABE75EB1981}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,8 +21,6 @@ Global
 		{87B1DB38-0C98-4590-ACCD-E204F4C27546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B1DB38-0C98-4590-ACCD-E204F4C27546}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B1DB38-0C98-4590-ACCD-E204F4C27546}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD6E246E-5494-42B9-9AB8-8ABE75EB1981}.Debug|Any CPU.ActiveCfg = Debug
-		{BD6E246E-5494-42B9-9AB8-8ABE75EB1981}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

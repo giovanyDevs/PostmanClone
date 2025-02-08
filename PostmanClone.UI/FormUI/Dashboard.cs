@@ -14,6 +14,11 @@ public partial class Dashboard : Form
         InitializeComponent();
     }
 
+    private void Dashboard_Load(object sender, EventArgs e)
+    {
+        HTTPVerbsCombo.SelectedItem = "GET";
+    }
+
     private async void StartRequestButton_Click(object sender, EventArgs e)
     {
         try
@@ -49,7 +54,7 @@ public partial class Dashboard : Form
 
             UpdateSystemStatus("An error occurred");
         }
-        finally 
+        finally
         {
             FinalizeFormAsyncMethod((Button)sender);
         }
@@ -99,4 +104,5 @@ public partial class Dashboard : Form
     private static void InitiateFormAsyncMethod(Button button) => button.Enabled = false;
 
     private static void FinalizeFormAsyncMethod(Button button) => button.Enabled = true;
+
 }
